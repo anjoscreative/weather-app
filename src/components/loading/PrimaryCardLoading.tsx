@@ -15,7 +15,7 @@ export default function PrimaryCardLoading() {
         <div className="flex flex-col items-center gap-3">
           {/* Custom loader image */}
           <Image
-            src="/assets/Icon-loading.svg" // 👈 replace with your loader image path
+            src="/assets/icon-loading.svg" 
             alt="Loading..."
             width={40}
             height={40}
