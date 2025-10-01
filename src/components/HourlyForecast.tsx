@@ -9,6 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
 
 type HourRowProps = {
   time: string;
@@ -43,7 +44,7 @@ function HourRow({ time, tempC, icon }: HourRowProps) {
   return (
     <div className="rounded-xl p-3 flex items-center justify-between border border-[#3C3B5E] bg-[#302F4A]">
       <div className="flex items-center gap-3">
-        <img src={icon} alt={time} className="w-6 h-6" />
+        <Image height={6} width={6} src={icon} alt={time} className="w-6 h-6" />
         <div className="text-sm text-foreground">{time}</div>
       </div>
       <div className="text-sm text-foreground">{formatTemp(tempC)}</div>
@@ -53,6 +54,11 @@ function HourRow({ time, tempC, icon }: HourRowProps) {
 
 export default function HourlyForecast() {
   const { weatherData, isLoading } = useWeather();
+
+  const today: string = new Date().toLocaleDateString(undefined, {
+    weekday: "long",
+  });
+  const [selectedDay, setSelectedDay] = useState<string>(today);
 
   if (isLoading || !weatherData?.hourly) {
     return <HourlyForecastLoading />;
@@ -81,11 +87,6 @@ export default function HourlyForecast() {
       )
     )
   );
-
-  const today: string = new Date().toLocaleDateString(undefined, {
-    weekday: "long",
-  });
-  const [selectedDay, setSelectedDay] = useState<string>(today);
 
   const filtered: HourData[] = hours.filter(
     (h: HourData) =>

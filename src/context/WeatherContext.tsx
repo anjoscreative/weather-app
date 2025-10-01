@@ -141,12 +141,14 @@ export function WeatherProvider({ children }: { children: ReactNode }) {
           temperature,
         });
       }
-    } catch (err: any) {
-      setError(err.message || "Unknown error");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Unknown error");
+      }
       setWeatherData(null);
       setCurrentMetrics(null);
-    } finally {
-      setIsLoading(false);
     }
   };
 
