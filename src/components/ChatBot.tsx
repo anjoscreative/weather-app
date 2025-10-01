@@ -191,7 +191,7 @@ export default function ChatBot() {
     const text = originalText.toLowerCase();
     const asksRain = /\brain\b/i.test(text);
     const asksTomorrow = /\btomorrow\b/i.test(text);
-    const asksToday = /\btoday\b/i.test(text);
+    // const asksToday = /\btoday\b/i.test(text);
     const asksTemp = /\b(temp|temperature|hot|cold)\b/i.test(text) || /\bhow (hot|cold)\b/i.test(text);
     const asksNow = /\b(now|currently|right now|today)\b/i.test(text) && !asksTomorrow;
 

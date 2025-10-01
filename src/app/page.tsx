@@ -7,13 +7,11 @@ import MetricGrid from "@/components/MetricGrid";
 import DailyForecast from "@/components/DailyForecast";
 import HourlyForecast from "@/components/HourlyForecast";
 import Image from "next/image";
-
 // Loading placeholders
 import PrimaryCardLoading from "../components/loading/PrimaryCardLoading";
 import MetricGridLoading from "../components/loading/MetricGridLoading";
 import DailyForecastLoading from "../components/loading/DailyForecastLoading";
 import HourlyForecastLoading from "../components/loading/HourlyForecastLoading";
-import { FiRefreshCw } from "react-icons/fi";
 import { useWeather } from "@/context/WeatherContext";
 import ChatBot from "@/components/ChatBot";
 
