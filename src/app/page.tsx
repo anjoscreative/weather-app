@@ -24,7 +24,7 @@ export default function Page() {
   const noConnection = Boolean(error); // treat any context error as "no connection"
 
   return (
-    <main className="min-h-screen bg-[#02012C] px-5 lg:px-12 lg:max-w-7xl mx-auto overflow-x-hidden">
+    <main className="min-h-screen bg-[#02012C] lg:px-12 lg:max-w-7xl mx-auto overflow-x-hidden">
       {/* Header ALWAYS shows */}
       <Header />
       <div className="mb-12" />
