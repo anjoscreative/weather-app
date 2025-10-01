@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { useWeather } from "@/context/WeatherContext"; // optional: used as fallback "my location"
 import { FaRobot } from "react-icons/fa";
 

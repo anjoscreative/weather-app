@@ -1,6 +1,7 @@
 "use client";
 import { useWeather } from "@/context/WeatherContext";
 import DailyForecastLoading from "./loading/DailyForecastLoading";
+import Image from "next/image";
 
 type DayCardProps = {
   day: string;
@@ -39,7 +40,7 @@ function DayCard({ day, hiC, loC, icon }: DayCardProps) {
     <div className="min-w-[5rem] rounded-xl  bg-[#262540] p-3 text-center card-shadow space-y-8 border border-[#3C3B5E]">
       <div className="text-sm font-medium text-foreground">{day}</div>
       <div>
-        <img src={icon} alt={day} className="w-8 h-8 mx-auto my-1 -mt-1" />
+        <Image src={icon} alt={day} width={8} height={8} className="w-8 h-8 mx-auto my-1 -mt-1" />
       </div>
       <div className="flex flex-row space-x-5 mt-3 justify-center">
         <div className="text-xs text-white">{formatTemp(hiC)}</div>

@@ -16,8 +16,37 @@ type Location = {
   longitude: number;
   country?: string;
 };
+// Based on Open-Meteo API
+interface CurrentWeather {
+  temperature: number;
+  windspeed: number;
+  weathercode: number;
+  time: string;
+}
 
-type WeatherData = any; // refine later if needed
+interface HourlyData {
+  time: string[];
+  temperature_2m: number[];
+  apparent_temperature: number[];
+  relativehumidity_2m: number[];
+  precipitation: number[];
+  windspeed_10m: number[];
+  weathercode: number[];
+}
+
+interface DailyData {
+  time: string[];
+  temperature_2m_max: number[];
+  temperature_2m_min: number[];
+  weathercode: number[];
+}
+
+interface WeatherData {
+  current_weather: CurrentWeather;
+  hourly: HourlyData;
+  daily: DailyData;
+  timezone: string;
+}
 
 type CurrentMetrics = {
   feelsLike: number;

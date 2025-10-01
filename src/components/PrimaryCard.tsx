@@ -1,6 +1,7 @@
 "use client";
 import { useWeather } from "@/context/WeatherContext";
 import PrimaryCardLoading from "./loading/PrimaryCardLoading";
+import Image from "next/image";
 
 function mapWeatherCodeToIcon(code: number) {
   if (code === 0) return "/assets/icon-sunny.webp"; // clear
@@ -57,7 +58,7 @@ export default function PrimaryCard() {
 
           {/* Right: Icon + Temp */}
           <div className="flex items-center gap-7">
-            <img src={iconSrc} alt="Weather Icon" className="w-12 h-12" />
+            <Image src={iconSrc} height={12} width={12} alt="Weather Icon" className="w-12 h-12" />
             <div className="text-4xl font-extrabold text-primary-foreground">
               {temp}
             </div>
