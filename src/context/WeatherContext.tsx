@@ -140,15 +140,32 @@ export function WeatherProvider({ children }: { children: ReactNode }) {
           windspeed,
           temperature,
         });
+      } else {
+        setCurrentMetrics(null);
       }
     } catch (err: unknown) {
+      // Safely extract a string message from any thrown value
+      let message = "Unknown error";
       if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Unknown error");
+        message = err.message;
+      } else if (typeof err === "string") {
+        message = err;
+      } else if (typeof err === "object" && err !== null) {
+        try {
+          message = JSON.stringify(err);
+        } catch {
+          // keep default
+        }
       }
+
+      // log full value for debugging in devtools / terminal
+      console.error("fetchWeather error:", err);
+
+      setError(message);
       setWeatherData(null);
       setCurrentMetrics(null);
+    } finally {
+      setIsLoading(false);
     }
   };
 
